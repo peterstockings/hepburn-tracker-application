@@ -201,7 +201,7 @@
             <ons-scroller>
                 <ons-list>
                     <ons-list-header>Squats</ons-list-header>
-                    <ons-list-item data-ng-repeat="squat in squats">
+                    <ons-list-item data-ng-repeat="squat in squats" onclick="this.style.backgroundColor = '#E6E6FA';">
                         <ons-row>
                             <ons-col width="90%">
 	                           <div>{{squat.reps}} reps</div>
@@ -212,7 +212,7 @@
                         </ons-row>
                     </ons-list-item>
                     <ons-list-header>Deadlifts</ons-list-header>
-                    <ons-list-item data-ng-repeat="deadlift in deadlifts">
+                    <ons-list-item data-ng-repeat="deadlift in deadlifts" onclick="this.style.backgroundColor = '#E6E6FA';">
                         <ons-row>
                             <ons-col width="90%">
 	                           <div>{{deadlift.reps}} reps</div>
@@ -241,7 +241,7 @@
             <ons-scroller>
                 <ons-list>
                     <ons-list-header>Bench</ons-list-header>
-                    <ons-list-item data-ng-repeat="bench in benchs">
+                    <ons-list-item data-ng-repeat="bench in benchs" onclick="this.style.backgroundColor = '#E6E6FA';">
                         <ons-row>
                             <ons-col width="90%">
 	                           <div>{{bench.reps}} reps</div>
@@ -252,7 +252,7 @@
                         </ons-row>
                     </ons-list-item>
                     <ons-list-header>Overheadpress</ons-list-header>
-                    <ons-list-item data-ng-repeat="overheadpress in overheadpresss">
+                    <ons-list-item data-ng-repeat="overheadpress in overheadpresss" onclick="this.style.backgroundColor = '#E6E6FA';">
                         <ons-row>
                             <ons-col width="90%">
 	                           <div>{{overheadpress.reps}} reps</div>

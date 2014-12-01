@@ -27,16 +27,19 @@ $scope.nextWorkout = function(){
         $scope.settingsData.DayNumber=parseInt($scope.settingsData.DayNumber)+1;
     }
     else{
-        parseInt($scope.settingsData.DayNumber) = 1;
+        $scope.settingsData.DayNumber = 1;
         if(parseInt($scope.settingsData.weekNumber)<4){
             $scope.settingsData.weekNumber=parseInt($scope.settingsData.weekNumber)+1;    
         }
         else{
-            $scope.settingsData.weekNumber = 1;
+            $scope.settingsData.weekNumber=1;
             $scope.settingsData.cycleNumber=parseInt($scope.settingsData.cycleNumber)+1;
         }
     }
-    $scope.$apply()
+    if(!$scope.$$phase){
+        $scope.$apply()
+    }
+    $scope.changeSettings();
     $scope.setWorkout(); 
 };
 
@@ -54,7 +57,10 @@ $scope.prevWorkout = function(){
             $scope.settingsData.cycleNumber=parseInt($scope.settingsData.cycleNumber)-1;
         }
     }
-    $scope.$apply()
+    if(!$scope.$$phase) {
+        $scope.$apply()
+    }
+    $scope.changeSettings();
     $scope.setWorkout(); 
 };
     
@@ -76,23 +82,22 @@ $scope.changeSettings = function(){
     $scope.updateWorkout($scope.overheadpresss,OHPWeight,workoutNum);
     $scope.updateWorkout($scope.deadlifts,DLWeight,workoutNum);
     $scope.updateWorkout($scope.squats,squatWeight,workoutNum);
-    
-    $scope.$apply()
+
+    if(!$scope.$$phase) {
+        $scope.$apply()
+    }
 };
 
 $scope.updateWorkout = function(arr,weights,num){
     for(i=0;i<arr.length;i++){
-        if(i>num+1){
-            arr[i].reps = 3;
+        if(i<(arr.length - num)){
+            arr[i].reps = 2;
         }
         else{
-            arr[i].reps = 2;
+            arr[i].reps = 3;
         }
         arr[i].weight = weights;
     }
-    //for(i=arr.length;i>(arr.length-num);i--){
-    //   arr[i].reps = 3; 
-    //}
 };
     
 $scope.squats = [
